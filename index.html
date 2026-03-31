@@ -1,13 +1,157 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="./js/main.js"></script>
-  </body>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Резюме — Онлайн-редактор</title>
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <div class="toolbar">
+      <p class="toolbar-title">📄 Редактор резюме</p>
+      <div class="toolbar-actions">
+        <button id="btn-download" class="btn btn-primary" type="button">
+          <span class="btn-text">⬇ Скачать PDF</span>
+        </button>
+        <button id="btn-reset" class="btn btn-secondary" type="button">
+          <span class="btn-text">🔄 Сбросить</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="resume" id="resume">
+      <header class="resume-header">
+        <div class="header-left">
+          <div class="avatar" contenteditable="false">
+            <img
+              src="https://api.dicebear.com/7.x/initials/svg?seed=JD&backgroundColor=4f46e5&textColor=ffffff&fontSize=40"
+              alt="Avatar" />
+          </div>
+        </div>
+        <div class="header-right">
+          <h1 class="name" contenteditable="true" data-field="name">Иванов Иван Иванович</h1>
+          <p class="title" contenteditable="true" data-field="title">Frontend-разработчик</p>
+          <div class="contact-info">
+            <span class="contact-item" contenteditable="true" data-field="email">📧 ivan@example.com</span>
+            <span class="contact-item" contenteditable="true" data-field="phone">📱 +7 (999) 123-45-67</span>
+            <span class="contact-item" contenteditable="true" data-field="location">📍 Новосибирск</span>
+            <span class="contact-item" contenteditable="true" data-field="website">🔗 github.com/ivan</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="resume-section">
+        <h2 class="section-title">Обо мне</h2>
+        <p class="summary-text" contenteditable="true" data-field="summary">
+          Опытный frontend-разработчик с более чем 3 годами опыта в создании веб-приложений.
+          Специализируюсь на JavaScript, HTML, CSS и современных фреймворках.
+          Стремлюсь создавать удобные и производительные пользовательские интерфейсы.
+        </p>
+      </section>
+
+      <section class="resume-section">
+        <h2 class="section-title">Опыт работы</h2>
+        <div class="experience-item">
+          <div class="experience-header">
+            <h3 class="company" contenteditable="true" data-field="company1">ООО «ТехноСтарт»</h3>
+            <span class="date" contenteditable="true" data-field="date1">Январь 2023 — Настоящее время</span>
+          </div>
+          <p class="position" contenteditable="true" data-field="position1">Frontend-разработчик</p>
+          <ul class="experience-list">
+            <li contenteditable="true" data-field="exp1_task1">Разработка и поддержка SPA на Vue.js и React</li>
+            <li contenteditable="true" data-field="exp1_task2">Оптимизация производительности приложения (уменьшение
+              времени загрузки на 40%)</li>
+            <li contenteditable="true" data-field="exp1_task3">Внедрение CI/CD процессов и код-ревью</li>
+          </ul>
+        </div>
+        <div class="experience-item">
+          <div class="experience-header">
+            <h3 class="company" contenteditable="true" data-field="company2">Студия «ВебДизайн»</h3>
+            <span class="date" contenteditable="true" data-field="date2">Июнь 2021 — Декабрь 2022</span>
+          </div>
+          <p class="position" contenteditable="true" data-field="position2">Junior-разработчик</p>
+          <ul class="experience-list">
+            <li contenteditable="true" data-field="exp2_task1">Вёрстка адаптивных страниц по макетам Figma</li>
+            <li contenteditable="true" data-field="exp2_task2">Разработка интерактивных компонентов с использованием
+              JavaScript</li>
+            <li contenteditable="true" data-field="exp2_task3">Поддержка и обновление существующих проектов</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="resume-section">
+        <h2 class="section-title">Образование</h2>
+        <div class="education-item">
+          <div class="education-header">
+            <h3 class="school" contenteditable="true" data-field="school1">СибГУТИ</h3>
+            <span class="date" contenteditable="true" data-field="edu_date1">2022 — 2026</span>
+          </div>
+          <p class="degree" contenteditable="true" data-field="degree1">Бакалавр, Информатика и вычислительная техника
+          </p>
+        </div>
+      </section>
+
+      <section class="resume-section">
+        <h2 class="section-title">Навыки</h2>
+        <div class="skills-container">
+          <div class="skill-group">
+            <h4 class="skill-category" contenteditable="true" data-field="skill_cat1">Языки:</h4>
+            <div class="skill-tags">
+              <span class="skill-tag" contenteditable="true" data-field="skill1">JavaScript</span>
+              <span class="skill-tag" contenteditable="true" data-field="skill2">TypeScript</span>
+              <span class="skill-tag" contenteditable="true" data-field="skill3">HTML5</span>
+              <span class="skill-tag" contenteditable="true" data-field="skill4">CSS3</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h4 class="skill-category" contenteditable="true" data-field="skill_cat2">Фреймворки:</h4>
+            <div class="skill-tags">
+              <span class="skill-tag" contenteditable="true" data-field="skill5">Vue.js</span>
+              <span class="skill-tag" contenteditable="true" data-field="skill6">React</span>
+              <span class="skill-tag" contenteditable="true" data-field="skill7">Vite</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h4 class="skill-category" contenteditable="true" data-field="skill_cat3">Инструменты:</h4>
+            <div class="skill-tags">
+              <span class="skill-tag" contenteditable="true" data-field="skill8">Git</span>
+              <span class="skill-tag" contenteditable="true" data-field="skill9">Docker</span>
+              <span class="skill-tag" contenteditable="true" data-field="skill10">Figma</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="resume-section">
+        <h2 class="section-title">Языки</h2>
+        <div class="languages-container">
+          <div class="language-item">
+            <span class="language-name" contenteditable="true" data-field="lang1_name">Русский</span>
+            <div class="language-level">
+              <div class="language-bar" style="width: 100%;" contenteditable="true" data-field="lang1_level"></div>
+            </div>
+            <span class="language-label" contenteditable="true" data-field="lang1_label">Родной</span>
+          </div>
+          <div class="language-item">
+            <span class="language-name" contenteditable="true" data-field="lang2_name">Английский</span>
+            <div class="language-level">
+              <div class="language-bar" style="width: 75%;" contenteditable="true" data-field="lang2_level"></div>
+            </div>
+            <span class="language-label" contenteditable="true" data-field="lang2_label">B2</span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="edit-hint">
+      <p>💡 Нажмите на любой текст, чтобы отредактировать его. Изменения сохраняются автоматически.</p>
+    </div>
+  </div>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+
 </html>
