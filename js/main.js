@@ -1,5 +1,3 @@
-import '../css/style.css'
-
 const STORAGE_KEY = 'resume_data_v1'
 const AUTOSAVE_DELAY = 500
 
