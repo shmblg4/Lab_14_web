@@ -647,6 +647,16 @@ body {
     print-color-adjust: exact;
   }
 
+  .avatar svg {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .avatar img {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
   .skill-tag {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
